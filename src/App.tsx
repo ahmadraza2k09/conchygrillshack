@@ -48,9 +48,11 @@ function Nav({ scrolled }: { scrolled: boolean }) {
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
-        background: scrolled ? 'rgba(255,253,249,0.96)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        background: scrolled ? 'rgba(255,253,249,0.85)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(1.4)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(245,181,27,0.18)' : 'none',
+        boxShadow: scrolled ? '0 6px 28px -12px rgba(77,39,21,0.22)' : 'none',
       }}
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between h-16 md:h-20">
@@ -254,7 +256,7 @@ function About() {
           </div>
 
           <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="w-full aspect-[4/5] rounded-sm overflow-hidden bg-[#3a2010]">
+            <div className="w-full aspect-[4/5] rounded-sm overflow-hidden bg-[#3a2010] card-shadow hover-lift">
               <img src={IMG.chef} alt="Chef Jerome cooking on the beach" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 mr-8 h-px" style={{ background: 'linear-gradient(to right, #F5B51B, transparent)' }} />
@@ -361,7 +363,7 @@ function Packages() {
           </div>
 
           <div className={`transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="w-full aspect-[3/4] rounded-sm overflow-hidden bg-[#2B1A0D]">
+            <div className="w-full aspect-[3/4] rounded-sm overflow-hidden bg-[#2B1A0D] card-shadow hover-lift">
               <img src={IMG.dinner} alt="Candlelit beach dinner table by the ocean" className="w-full h-full object-cover" />
             </div>
             <p className="mt-6 text-sm leading-relaxed"
@@ -436,7 +438,7 @@ function Menu() {
           </div>
 
           <div className={`transition-all duration-700 delay-400 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[#2B1A0D]">
+            <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[#2B1A0D] card-shadow hover-lift">
               <img src={IMG.grilledFish} alt="Fresh fish on the grill" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 p-5" style={{ background: 'rgba(77,39,21,0.06)', borderRadius: '2px' }}>
@@ -514,22 +516,38 @@ function Gallery() {
           </div>
         </div>
 
-        {/* Instagram embed placeholder */}
-        <div className="mt-8 p-8 flex flex-col items-center gap-3 rounded-sm"
-          style={{ border: '1px solid rgba(245,181,27,0.15)' }}>
-          <p className="text-xs tracking-[0.22em] uppercase"
-            style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.4)' }}>
-            Instagram Feed
-          </p>
-          <a href="https://instagram.com/conchyconchy2" target="_blank" rel="noopener noreferrer"
-            className="text-[#F5B51B] hover:text-[#FFD95A] transition-colors"
-            style={{ fontFamily: "'Cinzel', serif", fontSize: '1rem', letterSpacing: '0.06em' }}>
-            @conchyconchy2
-          </a>
-          <p className="text-xs" style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.3)' }}>
-            Instagram feed embed placeholder
-          </p>
-        </div>
+        {/* Instagram follow CTA */}
+        <a
+          href="https://instagram.com/conchyconchy2"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-8 flex flex-col sm:flex-row items-center gap-5 sm:gap-6 p-7 md:p-8 rounded-sm transition-all duration-300 hover:bg-[rgba(245,181,27,0.04)]"
+          style={{ border: '1px solid rgba(245,181,27,0.18)' }}
+        >
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105"
+            style={{ background: 'linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
+          >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <div className="text-center sm:text-left">
+            <p className="text-xs tracking-[0.22em] uppercase mb-1"
+              style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
+              Follow the journey
+            </p>
+            <p className="transition-colors group-hover:text-[#FFD95A]"
+              style={{ fontFamily: "'Cinzel', serif", fontSize: '1.25rem', color: '#F5B51B', letterSpacing: '0.05em' }}>
+              @conchyconchy2
+            </p>
+          </div>
+          <span
+            className="sm:ml-auto inline-flex items-center gap-2 px-6 py-2.5 text-xs tracking-[0.12em] uppercase transition-all duration-200 group-hover:gap-3"
+            style={{ border: '1px solid rgba(245,181,27,0.4)', color: '#F5B51B', borderRadius: '1px', fontFamily: "'DM Sans', sans-serif" }}
+          >
+            Follow
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
       </div>
     </section>
   )
@@ -554,16 +572,17 @@ function Location() {
         </div>
 
         <div className={`grid lg:grid-cols-[2fr_1fr] gap-10 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="rounded-sm overflow-hidden flex items-center justify-center"
-            style={{ height: '420px', background: '#e8e0d4', border: '1px solid rgba(77,39,21,0.1)' }}>
-            <div className="text-center">
-              <div className="w-10 h-10 mx-auto mb-3 flex items-center justify-center rounded-full" style={{ background: '#F5B51B' }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#4D2715"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              </div>
-              <p className="text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: '#4D2715', opacity: 0.6 }}>
-                Google Maps — Sapodilla Bay Beach
-              </p>
-            </div>
+          <div className="rounded-sm overflow-hidden card-shadow"
+            style={{ height: '420px', border: '1px solid rgba(77,39,21,0.12)' }}>
+            <iframe
+              title="Map of Conchy Conchy Grill Shack — Sapodilla Bay Beach, Providenciales, Turks & Caicos"
+              src="https://maps.google.com/maps?q=Sapodilla%20Bay%20Beach%2C%20Providenciales%2C%20Turks%20and%20Caicos&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-full"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
 
           <div className="flex flex-col justify-between gap-8">
@@ -747,6 +766,27 @@ function Footer() {
   )
 }
 
+function FloatingWhatsApp({ visible }: { visible: boolean }) {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Book on WhatsApp"
+      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-40 flex items-center justify-center w-14 h-14 rounded-full transition-all duration-300 hover:scale-110"
+      style={{
+        background: '#25D366',
+        boxShadow: '0 12px 32px -6px rgba(37,211,102,0.55)',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(16px) scale(0.85)',
+        pointerEvents: visible ? 'auto' : 'none',
+      }}
+    >
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.534 5.857L0 24l6.335-1.506A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.782 9.782 0 01-4.988-1.366l-.357-.213-3.758.893.946-3.652-.233-.375A9.77 9.77 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182S21.818 6.59 21.818 12 17.41 21.818 12 21.818z"/></svg>
+    </a>
+  )
+}
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -766,6 +806,7 @@ export default function App() {
       <Location />
       <Contact />
       <Footer />
+      <FloatingWhatsApp visible={scrolled} />
     </div>
   )
 }

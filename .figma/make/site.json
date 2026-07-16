@@ -1,7 +1,17 @@
 {
-  "description": "Create stunning, professional websites effortlessly with customizable templates, perfect for businesses and individuals looking to enhance their online presence.",
+  "title": "Conchy Conchy Grill Shack",
+  "description": "Private beach grilling on Sapodilla Bay, Providenciales. Chef Conchy brings 20+ years of gourmet Caribbean flavor to your table — fresh conch, grilled snapper, jerk chicken and more. We cook, you celebrate.",
+  "icons": {
+    "icon": "/favicon.png"
+  },
+  "openGraph": {
+    "image": "/apple-touch-icon.png"
+  },
   "robots": {
     "index": false
+  },
+  "customScripts": {
+    "headEnd": "<link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\" /><meta name=\"theme-color\" content=\"#4D2715\" />"
   },
   "accessibility": {
     "addBypassLinks": false,
