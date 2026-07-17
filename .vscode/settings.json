@@ -1,0 +1,15 @@
+{
+  // Tailwind CSS v4 introduces at-rules (@theme, @apply, @utility, @variant, @source)
+  // that VS Code's built-in CSS linter doesn't recognise, so it reports valid code as
+  // "Unknown at rule". Tailwind's own docs recommend disabling this specific check.
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore",
+  "less.lint.unknownAtRules": "ignore",
+
+  // Figma Make ships these config files as JSONC (they contain // comments), but the
+  // default .json association validates them as strict JSON and flags every comment.
+  "files.associations": {
+    "**/.figma/make/dev.json": "jsonc",
+    "**/.figma/make/site.json": "jsonc"
+  }
+}

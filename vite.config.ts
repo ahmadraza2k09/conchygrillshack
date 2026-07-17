@@ -30,13 +30,15 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      host: '0.0.0.0',
+      // '::' binds dual-stack (IPv6 + IPv4). '0.0.0.0' is IPv4-only, which breaks
+      // http://localhost on hosts that resolve localhost to ::1 first (e.g. Windows).
+      host: '::',
       port: parseInt(process.env.PORT || '8443'),
       strictPort: true,
       watch: { ignored: ['**/.figma/**'] },
     },
     preview: {
-      host: '0.0.0.0',
+      host: '::',
       port: parseInt(process.env.PORT || '8443'),
     },
   }
