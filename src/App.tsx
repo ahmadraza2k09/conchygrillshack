@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import logoImg from './imports/image.png'
+// Downscaled 160px mark — the full-res source (imports/image.png, ~966KB) is only
+// needed for the favicon build, not for the 40px avatars in the nav/footer.
+import logoImg from './imports/logo-mark.png'
 
 const WHATSAPP_URL =
   'https://wa.me/16494430115?text=Hi%20Chef%20Conchy%2C%20I%27d%20like%20to%20book%20a%20private%20dining%20experience.'
@@ -259,7 +261,7 @@ function About() {
 
           <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="w-full aspect-[4/5] rounded-sm overflow-hidden bg-[#3a2010] card-shadow hover-lift">
-              <img src={IMG.chef} alt="Chef Jerome cooking on the beach" className="w-full h-full object-cover" />
+              <img src={IMG.chef} alt="Chef Jerome cooking on the beach" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 mr-8 h-px" style={{ background: 'linear-gradient(to right, #F5B51B, transparent)' }} />
           </div>
@@ -366,7 +368,7 @@ function Packages() {
 
           <div className={`transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="w-full aspect-[3/4] rounded-sm overflow-hidden bg-[#2B1A0D] card-shadow hover-lift">
-              <img src={IMG.dinner} alt="Candlelit beach dinner table by the ocean" className="w-full h-full object-cover" />
+              <img src={IMG.dinner} alt="Candlelit beach dinner table by the ocean" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <p className="mt-6 text-sm leading-relaxed"
               style={{ fontFamily: "'Fraunces', serif", color: 'rgba(246,241,231,0.4)', fontSize: '0.88rem', letterSpacing: '0.03em' }}>
@@ -402,7 +404,7 @@ function Menu() {
                 The Menu
               </h2>
             </div>
-            <div className="text-right">
+            <div className="text-left md:text-right">
               <p className="text-xs tracking-[0.2em] uppercase mb-1"
                 style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.45 }}>
                 Pricing
@@ -441,7 +443,7 @@ function Menu() {
 
           <div className={`transition-all duration-700 delay-400 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[#2B1A0D] card-shadow hover-lift">
-              <img src={IMG.grilledFish} alt="Fresh fish on the grill" className="w-full h-full object-cover" />
+              <img src={IMG.grilledFish} alt="Fresh fish on the grill" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 p-5" style={{ background: 'rgba(77,39,21,0.06)', borderRadius: '2px' }}>
               <p style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '0.88rem', lineHeight: 1.7, letterSpacing: '0.02em' }}>
@@ -458,12 +460,14 @@ function Menu() {
 function Gallery() {
   const { ref, visible } = useInView()
 
+  // `cls` drives the mosaic: full-bleed hero tile, then paired tiles. On mobile every
+  // row resolves to exactly two columns so no tile is ever left orphaned beside a gap.
   const photos = [
-    { src: IMG.galChef,   alt: 'Chef grilling snapper on the beach',   caption: 'Chef grilling snapper',   wide: true },
-    { src: IMG.galConch,  alt: 'Fresh conch shells on the beach sand',  caption: 'Fresh conch salad',       wide: false },
-    { src: IMG.galBBQ,    alt: 'Beach BBQ with open flame',             caption: 'Beach BBQ',               wide: false },
-    { src: IMG.galDinner, alt: 'Couple at romantic private beach dinner', caption: 'Private dinner',         wide: false },
-    { src: IMG.galSunset, alt: 'Sunset over turquoise Caribbean water',  caption: 'Sunset at Sapodilla Bay', wide: true },
+    { src: IMG.galChef,   alt: 'Chef grilling snapper on the beach',     caption: 'Chef grilling snapper',   cls: 'col-span-2 md:row-span-2 h-[300px] md:h-[480px]' },
+    { src: IMG.galConch,  alt: 'Fresh conch shells on the beach sand',   caption: 'Fresh conch salad',       cls: 'col-span-1 h-[200px] md:h-[234px]' },
+    { src: IMG.galBBQ,    alt: 'Beach BBQ with open flame',              caption: 'Beach BBQ',               cls: 'col-span-1 h-[200px] md:h-[234px]' },
+    { src: IMG.galDinner, alt: 'Couple at romantic private beach dinner', caption: 'Private dinner',          cls: 'col-span-1 h-[200px] md:h-[280px]' },
+    { src: IMG.galSunset, alt: 'Sunset over turquoise Caribbean water',  caption: 'Sunset at Sapodilla Bay', cls: 'col-span-1 md:col-span-2 h-[200px] md:h-[280px]' },
   ]
 
   return (
@@ -479,43 +483,22 @@ function Gallery() {
           </h2>
         </div>
 
-        {/* Asymmetric grid */}
+        {/* Asymmetric mosaic */}
         <div className={`grid grid-cols-2 md:grid-cols-3 gap-3 transition-all duration-700 delay-200 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-          {/* Large left — chef */}
-          <div className="col-span-2 md:col-span-2 row-span-2 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '480px' }}>
-            <img src={photos[0].src} alt={photos[0].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[0].caption}</p>
+          {photos.map(p => (
+            <div key={p.caption} className={`${p.cls} rounded-sm overflow-hidden bg-[#1a0d06] relative group`}>
+              <img
+                src={p.src}
+                alt={p.alt}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                <p className="text-xs tracking-widest uppercase text-white/75" style={{ fontFamily: "'Karla', sans-serif" }}>{p.caption}</p>
+              </div>
             </div>
-          </div>
-          {/* Top-right — conch */}
-          <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '234px' }}>
-            <img src={photos[1].src} alt={photos[1].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[1].caption}</p>
-            </div>
-          </div>
-          {/* BBQ */}
-          <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '234px' }}>
-            <img src={photos[2].src} alt={photos[2].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[2].caption}</p>
-            </div>
-          </div>
-          {/* Private dinner */}
-          <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '280px' }}>
-            <img src={photos[3].src} alt={photos[3].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[3].caption}</p>
-            </div>
-          </div>
-          {/* Sunset — wide */}
-          <div className="col-span-2 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '280px' }}>
-            <img src={photos[4].src} alt={photos[4].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-            <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[4].caption}</p>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Instagram follow CTA */}
