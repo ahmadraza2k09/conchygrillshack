@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Karla:ital,wght@0,300..800;1,300..700&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-serif: 'Cinzel', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Karla', system-ui, sans-serif;
 
   --color-gold: #F5B51B;
   --color-gold-light: #FFD95A;
@@ -40,7 +40,7 @@ html {
 body {
   background-color: #FFFDF9;
   color: #2B2B2B;
-  font-family: 'DM Sans', system-ui, sans-serif;
+  font-family: 'Karla', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

@@ -66,13 +66,13 @@ function Nav({ scrolled }: { scrolled: boolean }) {
           <div className="leading-tight">
             <span
               className="block font-bold tracking-wide"
-              style={{ fontFamily: "'Cinzel', serif", color: scrolled ? '#4D2715' : '#FFFDF9', fontSize: '0.78rem' }}
+              style={{ fontFamily: "'Fraunces', serif", color: scrolled ? '#4D2715' : '#FFFDF9', fontSize: '0.78rem' }}
             >
               Conchy Conchy
             </span>
             <span
               className="block tracking-[0.18em] uppercase"
-              style={{ fontFamily: "'DM Sans', sans-serif", color: scrolled ? '#F5B51B' : 'rgba(245,181,27,0.9)', fontSize: '0.6rem' }}
+              style={{ fontFamily: "'Karla', sans-serif", color: scrolled ? '#F5B51B' : 'rgba(245,181,27,0.9)', fontSize: '0.6rem' }}
             >
               Grill Shack
             </span>
@@ -85,7 +85,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
               <a
                 href={l.href}
                 className="text-sm tracking-wide transition-colors duration-200"
-                style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500, color: scrolled ? '#2B2B2B' : 'rgba(255,253,249,0.88)' }}
+                style={{ fontFamily: "'Karla', sans-serif", fontWeight: 500, color: scrolled ? '#2B2B2B' : 'rgba(255,253,249,0.88)' }}
                 onMouseEnter={e => { (e.target as HTMLElement).style.color = '#F5B51B' }}
                 onMouseLeave={e => { (e.target as HTMLElement).style.color = scrolled ? '#2B2B2B' : 'rgba(255,253,249,0.88)' }}
               >
@@ -100,7 +100,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium transition-all duration-200 hover:scale-[1.03]"
-          style={{ fontFamily: "'DM Sans', sans-serif", background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', letterSpacing: '0.04em' }}
+          style={{ fontFamily: "'Karla', sans-serif", background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', letterSpacing: '0.04em' }}
         >
           Book on WhatsApp
         </a>
@@ -122,7 +122,7 @@ function Nav({ scrolled }: { scrolled: boolean }) {
               <li key={l.href}>
                 <a href={l.href} onClick={() => setOpen(false)}
                   className="block text-sm tracking-wide"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', fontWeight: 500 }}>
+                  style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', fontWeight: 500 }}>
                   {l.label}
                 </a>
               </li>
@@ -150,8 +150,9 @@ function Hero() {
         alt="Turquoise Caribbean waters at Sapodilla Bay"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Gradient overlay — dark at top & bottom for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0d06]/55 via-transparent to-[#1a0d06]/88" />
+      {/* Legibility scrim — vertical veil plus a left-side gradient, so copy stays readable over the bright surf */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a0d06]/70 via-[#1a0d06]/30 to-[#1a0d06]/92" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1a0d06]/70 via-[#1a0d06]/20 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-6 md:px-12 lg:px-20 pb-20 md:pb-28">
@@ -159,24 +160,25 @@ function Hero() {
           <h1
             className="fade-up delay-100 text-[#FFFDF9] leading-[1.05] mb-6"
             style={{
-              fontFamily: "'Cinzel', serif",
-              fontSize: 'clamp(2.8rem, 6.5vw, 6.5rem)',
+              fontFamily: "'Fraunces', serif",
+              fontSize: 'clamp(2.9rem, 6.5vw, 6.5rem)',
               fontWeight: 700,
-              letterSpacing: '0.02em',
+              letterSpacing: '-0.015em',
+              textShadow: '0 4px 28px rgba(10,6,3,0.5)',
             }}
           >
             Grilling On<br />
             The Beach
           </h1>
           <p
-            className="fade-up delay-200 text-[#F6F1E7]/85 mb-2"
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontWeight: 300, letterSpacing: '0.02em' }}
+            className="fade-up delay-200 mb-3"
+            style={{ fontFamily: "'Karla', sans-serif", fontSize: 'clamp(1.05rem, 2vw, 1.35rem)', fontWeight: 400, letterSpacing: '0.01em', color: '#FFFDF9', textShadow: '0 2px 14px rgba(10,6,3,0.7)' }}
           >
             We Cook, You Celebrate.
           </p>
           <p
             className="fade-up delay-300 mb-12"
-            style={{ fontFamily: "'Cinzel', serif", color: '#F5B51B', opacity: 0.85, fontSize: 'clamp(0.85rem, 1.4vw, 1.05rem)', letterSpacing: '0.08em' }}
+            style={{ fontFamily: "'Fraunces', serif", color: '#FFD95A', fontStyle: 'italic', fontWeight: 500, fontSize: 'clamp(1rem, 1.6vw, 1.25rem)', letterSpacing: '0.03em', textShadow: '0 2px 14px rgba(10,6,3,0.7)' }}
           >
             Exquisite Dining. Unforgettable Moments.
           </p>
@@ -186,7 +188,7 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 text-sm font-medium tracking-wide transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
-              style={{ background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.06em' }}
+              style={{ background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'Karla', sans-serif", letterSpacing: '0.06em' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.534 5.857L0 24l6.335-1.506A11.938 11.938 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.782 9.782 0 01-4.988-1.366l-.357-.213-3.758.893.946-3.652-.233-.375A9.77 9.77 0 012.182 12C2.182 6.59 6.59 2.182 12 2.182S21.818 6.59 21.818 12 17.41 21.818 12 21.818z"/></svg>
               Book on WhatsApp
@@ -194,7 +196,7 @@ function Hero() {
             <a
               href="#location"
               className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide transition-all duration-200 hover:bg-white/10"
-              style={{ border: '1px solid rgba(255,253,249,0.35)', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.06em' }}
+              style={{ border: '1px solid rgba(255,253,249,0.35)', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'Karla', sans-serif", letterSpacing: '0.06em' }}
             >
               Find the Grill Shack
             </a>
@@ -205,7 +207,7 @@ function Hero() {
       <div className="absolute bottom-8 right-8 md:right-16 z-10 flex flex-col items-center gap-2 fade-in delay-700">
         <div className="w-px h-12 bg-gradient-to-b from-transparent to-[#F5B51B]/60" />
         <p className="text-[#F5B51B]/60 text-xs tracking-[0.2em] uppercase"
-          style={{ writingMode: 'vertical-lr', fontFamily: "'DM Sans', sans-serif" }}>
+          style={{ writingMode: 'vertical-lr', fontFamily: "'Karla', sans-serif" }}>
           Scroll
         </p>
       </div>
@@ -221,18 +223,18 @@ function About() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-center">
           <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="text-[#E57B1A] text-xs tracking-[0.28em] uppercase mb-5"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              style={{ fontFamily: "'Karla', sans-serif" }}>
               Est. 20+ Years
             </p>
             <h2
               className="mb-8 leading-[1.1]"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2rem, 3.8vw, 3.5rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.03em' }}
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 3.8vw, 3.5rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.03em' }}
             >
               Chef Conchy &amp;<br />
               <span style={{ color: '#F5B51B' }}>The Art of the Grill</span>
             </h2>
             <p className="leading-relaxed mb-10 max-w-lg"
-              style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '1.05rem', color: '#2B2B2B', fontWeight: 300, lineHeight: 1.8 }}>
+              style={{ fontFamily: "'Karla', sans-serif", fontSize: '1.05rem', color: '#2B2B2B', fontWeight: 300, lineHeight: 1.8 }}>
               Conchy Conchy Grill Shack brings gourmet flavor to your special moments. With passion, creativity, and the freshest local ingredients, Chef Conchy delivers an elevated dining experience anywhere you are.
             </p>
             <div className="grid grid-cols-2 gap-x-8 gap-y-7">
@@ -243,11 +245,11 @@ function About() {
                 { num: '100%', label: 'Local Recommendation' },
               ].map(c => (
                 <div key={c.label} className="border-l-2 pl-4" style={{ borderColor: '#F5B51B' }}>
-                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: '1.8rem', color: '#4D2715', fontWeight: 700, lineHeight: 1 }}>
+                  <p style={{ fontFamily: "'Fraunces', serif", fontSize: '1.8rem', color: '#4D2715', fontWeight: 700, lineHeight: 1 }}>
                     {c.num}
                   </p>
                   <p className="mt-1 text-xs tracking-wide uppercase"
-                    style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', opacity: 0.6 }}>
+                    style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.6 }}>
                     {c.label}
                   </p>
                 </div>
@@ -285,12 +287,12 @@ function Packages() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-16 lg:gap-24 items-start">
           <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="text-[#F5B51B] text-xs tracking-[0.28em] uppercase mb-5"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              style={{ fontFamily: "'Karla', sans-serif" }}>
               Private Chef Experience
             </p>
             <h2
               className="mb-12 leading-tight"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2rem, 3.2vw, 3rem)', color: '#F6F1E7', fontWeight: 700, letterSpacing: '0.04em' }}
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 3.2vw, 3rem)', color: '#F6F1E7', fontWeight: 700, letterSpacing: '0.04em' }}
             >
               Private Chef<br />
               <span style={{ color: '#F5B51B' }}>Packages</span>
@@ -303,12 +305,12 @@ function Packages() {
                   className={`flex items-center justify-between py-4 transition-all duration-500 ${visible ? 'opacity-100' : 'opacity-0'}`}
                   style={{ borderBottom: '1px solid rgba(246,241,231,0.12)', transitionDelay: `${i * 60 + 200}ms` }}
                 >
-                  <span style={{ fontFamily: "'DM Sans', sans-serif", color: '#F6F1E7', fontWeight: 300, fontSize: '1.05rem' }}>
+                  <span style={{ fontFamily: "'Karla', sans-serif", color: '#F6F1E7', fontWeight: 300, fontSize: '1.05rem' }}>
                     {pkg.size}
                   </span>
                   <div className="flex items-center gap-4">
                     <div className="h-px opacity-20" style={{ width: '60px', background: '#F5B51B' }} />
-                    <span style={{ fontFamily: "'Cinzel', serif", color: '#F5B51B', fontWeight: 600, fontSize: '1.05rem', letterSpacing: '0.05em' }}>
+                    <span style={{ fontFamily: "'Fraunces', serif", color: '#F5B51B', fontWeight: 600, fontSize: '1.05rem', letterSpacing: '0.05em' }}>
                       {pkg.price}
                     </span>
                   </div>
@@ -318,13 +320,13 @@ function Packages() {
 
             <div className="mt-10">
               <p className="text-xs tracking-[0.22em] uppercase mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
                 Perfect for
               </p>
               <div className="flex flex-wrap gap-2">
                 {occasions.map(o => (
                   <span key={o} className="px-3 py-1.5 text-xs tracking-wide"
-                    style={{ border: '1px solid rgba(245,181,27,0.35)', color: '#F5B51B', fontFamily: "'DM Sans', sans-serif", borderRadius: '1px' }}>
+                    style={{ border: '1px solid rgba(245,181,27,0.35)', color: '#F5B51B', fontFamily: "'Karla', sans-serif", borderRadius: '1px' }}>
                     {o}
                   </span>
                 ))}
@@ -333,7 +335,7 @@ function Packages() {
 
             <div className="mt-10 p-6" style={{ border: '1px solid rgba(245,181,27,0.2)', borderRadius: '2px' }}>
               <p className="text-xs tracking-[0.2em] uppercase mb-3"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: '#F5B51B', opacity: 0.7 }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: '#F5B51B', opacity: 0.7 }}>
                 Booking Policy
               </p>
               <ul className="space-y-2">
@@ -344,7 +346,7 @@ function Packages() {
                   'Thank you for understanding and respecting our time.',
                 ].map(p => (
                   <li key={p} className="text-sm"
-                    style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.65)', fontWeight: 300, lineHeight: 1.6 }}>
+                    style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.65)', fontWeight: 300, lineHeight: 1.6 }}>
                     {p}
                   </li>
                 ))}
@@ -356,7 +358,7 @@ function Packages() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-2.5 px-8 py-4 text-sm font-semibold tracking-wide transition-all duration-200 hover:scale-[1.02]"
-              style={{ background: '#F5B51B', color: '#4D2715', borderRadius: '2px', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.06em' }}
+              style={{ background: '#F5B51B', color: '#4D2715', borderRadius: '2px', fontFamily: "'Karla', sans-serif", letterSpacing: '0.06em' }}
             >
               Reserve Your Evening
             </a>
@@ -367,7 +369,7 @@ function Packages() {
               <img src={IMG.dinner} alt="Candlelit beach dinner table by the ocean" className="w-full h-full object-cover" />
             </div>
             <p className="mt-6 text-sm leading-relaxed"
-              style={{ fontFamily: "'Cinzel', serif", color: 'rgba(246,241,231,0.4)', fontSize: '0.88rem', letterSpacing: '0.03em' }}>
+              style={{ fontFamily: "'Fraunces', serif", color: 'rgba(246,241,231,0.4)', fontSize: '0.88rem', letterSpacing: '0.03em' }}>
               "An evening under the stars, with the ocean as your backdrop and the finest Caribbean flavors at your table."
             </p>
           </div>
@@ -393,22 +395,22 @@ function Menu() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <div>
               <p className="text-[#E57B1A] text-xs tracking-[0.28em] uppercase mb-4"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                style={{ fontFamily: "'Karla', sans-serif" }}>
                 Grill Shack
               </p>
-              <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', color: '#4D2715', fontWeight: 700, lineHeight: 1.05, letterSpacing: '0.04em' }}>
+              <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', color: '#4D2715', fontWeight: 700, lineHeight: 1.05, letterSpacing: '0.04em' }}>
                 The Menu
               </h2>
             </div>
             <div className="text-right">
               <p className="text-xs tracking-[0.2em] uppercase mb-1"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', opacity: 0.45 }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.45 }}>
                 Pricing
               </p>
-              <p style={{ fontFamily: "'Cinzel', serif", color: '#4D2715', fontSize: '1rem', letterSpacing: '0.04em' }}>
+              <p style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '1rem', letterSpacing: '0.04em' }}>
                 Market Price
               </p>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", color: '#E57B1A', fontSize: '0.8rem', letterSpacing: '0.1em' }}>
+              <p style={{ fontFamily: "'Karla', sans-serif", color: '#E57B1A', fontSize: '0.8rem', letterSpacing: '0.1em' }}>
                 Ask at the Bar
               </p>
             </div>
@@ -421,13 +423,13 @@ function Menu() {
             {categories.map(cat => (
               <div key={cat.name}>
                 <h3 className="mb-4 pb-3 border-b"
-                  style={{ fontFamily: "'Cinzel', serif", color: '#4D2715', fontSize: '1.1rem', fontWeight: 600, borderColor: 'rgba(77,39,21,0.15)', letterSpacing: '0.05em' }}>
+                  style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '1.1rem', fontWeight: 600, borderColor: 'rgba(77,39,21,0.15)', letterSpacing: '0.05em' }}>
                   {cat.name}
                 </h3>
                 <ul className="space-y-2.5">
                   {cat.items.map(item => (
                     <li key={item} className="flex items-center gap-3"
-                      style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', fontWeight: 300, fontSize: '0.98rem' }}>
+                      style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', fontWeight: 300, fontSize: '0.98rem' }}>
                       <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: '#F5B51B' }} />
                       {item}
                     </li>
@@ -442,7 +444,7 @@ function Menu() {
               <img src={IMG.grilledFish} alt="Fresh fish on the grill" className="w-full h-full object-cover" />
             </div>
             <div className="mt-4 p-5" style={{ background: 'rgba(77,39,21,0.06)', borderRadius: '2px' }}>
-              <p style={{ fontFamily: "'Cinzel', serif", color: '#4D2715', fontSize: '0.88rem', lineHeight: 1.7, letterSpacing: '0.02em' }}>
+              <p style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '0.88rem', lineHeight: 1.7, letterSpacing: '0.02em' }}>
                 All seafood is sourced fresh daily from local Turks &amp; Caicos waters. Prices are seasonal and reflect the catch of the day.
               </p>
             </div>
@@ -469,10 +471,10 @@ function Gallery() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         <div className={`mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-[#F5B51B] text-xs tracking-[0.28em] uppercase mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ fontFamily: "'Karla', sans-serif" }}>
             Gallery
           </p>
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2rem, 3.8vw, 3.4rem)', color: '#F6F1E7', fontWeight: 700, letterSpacing: '0.04em' }}>
+          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 3.8vw, 3.4rem)', color: '#F6F1E7', fontWeight: 700, letterSpacing: '0.04em' }}>
             Life on the Beach
           </h2>
         </div>
@@ -483,35 +485,35 @@ function Gallery() {
           <div className="col-span-2 md:col-span-2 row-span-2 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '480px' }}>
             <img src={photos[0].src} alt={photos[0].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{photos[0].caption}</p>
+              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[0].caption}</p>
             </div>
           </div>
           {/* Top-right — conch */}
           <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '234px' }}>
             <img src={photos[1].src} alt={photos[1].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{photos[1].caption}</p>
+              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[1].caption}</p>
             </div>
           </div>
           {/* BBQ */}
           <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '234px' }}>
             <img src={photos[2].src} alt={photos[2].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{photos[2].caption}</p>
+              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[2].caption}</p>
             </div>
           </div>
           {/* Private dinner */}
           <div className="col-span-1 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '280px' }}>
             <img src={photos[3].src} alt={photos[3].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{photos[3].caption}</p>
+              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[3].caption}</p>
             </div>
           </div>
           {/* Sunset — wide */}
           <div className="col-span-2 rounded-sm overflow-hidden bg-[#1a0d06] relative group" style={{ height: '280px' }}>
             <img src={photos[4].src} alt={photos[4].alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>{photos[4].caption}</p>
+              <p className="text-xs tracking-widest uppercase text-white/60" style={{ fontFamily: "'Karla', sans-serif" }}>{photos[4].caption}</p>
             </div>
           </div>
         </div>
@@ -532,17 +534,17 @@ function Gallery() {
           </div>
           <div className="text-center sm:text-left">
             <p className="text-xs tracking-[0.22em] uppercase mb-1"
-              style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
+              style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
               Follow the journey
             </p>
             <p className="transition-colors group-hover:text-[#FFD95A]"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: '1.25rem', color: '#F5B51B', letterSpacing: '0.05em' }}>
+              style={{ fontFamily: "'Fraunces', serif", fontSize: '1.25rem', color: '#F5B51B', letterSpacing: '0.05em' }}>
               @conchyconchy2
             </p>
           </div>
           <span
             className="sm:ml-auto inline-flex items-center gap-2 px-6 py-2.5 text-xs tracking-[0.12em] uppercase transition-all duration-200 group-hover:gap-3"
-            style={{ border: '1px solid rgba(245,181,27,0.4)', color: '#F5B51B', borderRadius: '1px', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ border: '1px solid rgba(245,181,27,0.4)', color: '#F5B51B', borderRadius: '1px', fontFamily: "'Karla', sans-serif" }}
           >
             Follow
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -560,13 +562,13 @@ function Location() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         <div className={`mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-[#E57B1A] text-xs tracking-[0.28em] uppercase mb-4"
-            style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            style={{ fontFamily: "'Karla', sans-serif" }}>
             Find Us
           </p>
-          <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2rem, 3.8vw, 3.2rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.04em' }}>
+          <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2rem, 3.8vw, 3.2rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.04em' }}>
             Sapodilla Bay Beach
           </h2>
-          <p className="mt-2" style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', opacity: 0.6, fontWeight: 300 }}>
+          <p className="mt-2" style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.6, fontWeight: 300 }}>
             Providenciales, Turks &amp; Caicos
           </p>
         </div>
@@ -588,29 +590,29 @@ function Location() {
           <div className="flex flex-col justify-between gap-8">
             <div className="p-7" style={{ background: '#F6F1E7', borderRadius: '2px', border: '1px solid rgba(245,181,27,0.2)' }}>
               <div className="flex items-baseline gap-3 mb-2">
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: '3rem', color: '#F5B51B', fontWeight: 700, lineHeight: 1 }}>
+                <span style={{ fontFamily: "'Fraunces', serif", fontSize: '3rem', color: '#F5B51B', fontWeight: 700, lineHeight: 1 }}>
                   4.4
                 </span>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", color: '#F5B51B', fontSize: '1.2rem' }}>★★★★</span>
+                <span style={{ fontFamily: "'Karla', sans-serif", color: '#F5B51B', fontSize: '1.2rem' }}>★★★★</span>
               </div>
-              <p className="text-sm" style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', opacity: 0.55, fontWeight: 300 }}>
+              <p className="text-sm" style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.55, fontWeight: 300 }}>
                 42 Google Reviews
               </p>
               <a href="https://www.google.com/search?q=Conchy+Conchy+Grill+Shack+Turks+Caicos"
                 target="_blank" rel="noopener noreferrer"
                 className="mt-4 inline-block text-xs tracking-widest uppercase border-b transition-colors duration-200"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: '#E57B1A', borderColor: 'rgba(229,123,26,0.3)', paddingBottom: '2px' }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: '#E57B1A', borderColor: 'rgba(229,123,26,0.3)', paddingBottom: '2px' }}>
                 View on Google
               </a>
             </div>
 
             <div>
               <p className="text-xs tracking-[0.2em] uppercase mb-3"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: '#2B2B2B', opacity: 0.4 }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: '#2B2B2B', opacity: 0.4 }}>
                 Address
               </p>
               <address className="not-italic leading-relaxed"
-                style={{ fontFamily: "'Cinzel', serif", color: '#4D2715', fontSize: '1rem', letterSpacing: '0.03em' }}>
+                style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '1rem', letterSpacing: '0.03em' }}>
                 Sapodilla Bay Beach<br />
                 Providenciales<br />
                 Turks &amp; Caicos Islands
@@ -619,7 +621,7 @@ function Location() {
 
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-200 hover:scale-[1.02]"
-              style={{ background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'DM Sans', sans-serif", letterSpacing: '0.06em' }}>
+              style={{ background: '#E57B1A', color: '#FFFDF9', borderRadius: '2px', fontFamily: "'Karla', sans-serif", letterSpacing: '0.06em' }}>
               Get Directions via WhatsApp
             </a>
           </div>
@@ -637,15 +639,15 @@ function Contact() {
         <div className={`grid lg:grid-cols-[1fr_1fr] gap-16 items-center transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div>
             <p className="text-xs tracking-[0.28em] uppercase mb-4"
-              style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(77,39,21,0.6)' }}>
+              style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(77,39,21,0.6)' }}>
               Contact
             </p>
             <h2 className="leading-[1.05] mb-6"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: 'clamp(2.2rem, 4.5vw, 4.2rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.04em' }}>
+              style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(2.2rem, 4.5vw, 4.2rem)', color: '#4D2715', fontWeight: 700, letterSpacing: '0.04em' }}>
               Ready to<br />Reserve?
             </h2>
             <p className="max-w-sm leading-relaxed"
-              style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(77,39,21,0.7)', fontWeight: 300, fontSize: '1.05rem', lineHeight: 1.8 }}>
+              style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(77,39,21,0.7)', fontWeight: 300, fontSize: '1.05rem', lineHeight: 1.8 }}>
               No forms. No emails. Just message Chef Conchy directly on WhatsApp to reserve your private dining experience.
             </p>
           </div>
@@ -659,10 +661,10 @@ function Contact() {
               </div>
               <div>
                 <p className="text-xs tracking-[0.2em] uppercase mb-0.5"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
+                  style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.45)' }}>
                   WhatsApp
                 </p>
-                <p style={{ fontFamily: "'Cinzel', serif", color: '#F6F1E7', fontSize: '1.1rem', fontWeight: 600, letterSpacing: '0.05em' }}>
+                <p style={{ fontFamily: "'Fraunces', serif", color: '#F6F1E7', fontSize: '1.1rem', fontWeight: 600, letterSpacing: '0.05em' }}>
                   +1 (649) 443-0115
                 </p>
               </div>
@@ -677,10 +679,10 @@ function Contact() {
               </div>
               <div>
                 <p className="text-xs tracking-[0.2em] uppercase mb-0.5"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(77,39,21,0.5)' }}>
+                  style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(77,39,21,0.5)' }}>
                   Instagram
                 </p>
-                <p style={{ fontFamily: "'Cinzel', serif", color: '#4D2715', fontSize: '1.1rem', fontWeight: 600, letterSpacing: '0.05em' }}>
+                <p style={{ fontFamily: "'Fraunces', serif", color: '#4D2715', fontSize: '1.1rem', fontWeight: 600, letterSpacing: '0.05em' }}>
                   @conchyconchy2
                 </p>
               </div>
@@ -711,11 +713,11 @@ function Footer() {
             </div>
             <div>
               <span className="block font-bold"
-                style={{ fontFamily: "'Cinzel', serif", color: '#F6F1E7', fontSize: '0.78rem', letterSpacing: '0.05em' }}>
+                style={{ fontFamily: "'Fraunces', serif", color: '#F6F1E7', fontSize: '0.78rem', letterSpacing: '0.05em' }}>
                 Conchy Conchy
               </span>
               <span className="block tracking-[0.18em] uppercase"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: '#F5B51B', fontSize: '0.6rem' }}>
+                style={{ fontFamily: "'Karla', sans-serif", color: '#F5B51B', fontSize: '0.6rem' }}>
                 Grill Shack
               </span>
             </div>
@@ -727,7 +729,7 @@ function Footer() {
                 <li key={l.href}>
                   <a href={l.href}
                     className="text-xs tracking-wide transition-colors duration-200"
-                    style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.45)', fontWeight: 400 }}
+                    style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.45)', fontWeight: 400 }}
                     onMouseEnter={e => { (e.target as HTMLElement).style.color = '#F5B51B' }}
                     onMouseLeave={e => { (e.target as HTMLElement).style.color = 'rgba(246,241,231,0.45)' }}>
                     {l.label}
@@ -754,10 +756,10 @@ function Footer() {
 
         <div className="mt-8 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
           style={{ borderTop: '1px solid rgba(245,181,27,0.08)' }}>
-          <p className="text-xs" style={{ fontFamily: "'DM Sans', sans-serif", color: 'rgba(246,241,231,0.25)' }}>
+          <p className="text-xs" style={{ fontFamily: "'Karla', sans-serif", color: 'rgba(246,241,231,0.25)' }}>
             &copy; {new Date().getFullYear()} Conchy Conchy Grill Shack. All rights reserved.
           </p>
-          <p className="text-xs" style={{ fontFamily: "'Cinzel', serif", color: 'rgba(245,181,27,0.3)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
+          <p className="text-xs" style={{ fontFamily: "'Fraunces', serif", color: 'rgba(245,181,27,0.3)', fontSize: '0.72rem', letterSpacing: '0.04em' }}>
             Sapodilla Bay, Providenciales, Turks &amp; Caicos
           </p>
         </div>
